@@ -54,4 +54,38 @@ public final class ButterflyClient
             /* TODO: Throw an exception here */
         }
     }
+
+    public void register(string username, string password)
+    {
+        /**
+        * Construct the command.
+        */
+        JSONValue commandBlock;
+        commandBlock["command"] = "register";
+        
+        JSONValue requestBlock;
+        requestBlock["username"] = username;
+        requestBlock["password"] = password;
+
+        commandBlock["request"] = requestBlock;
+
+        /* Send the command */
+        sendMessage(connection, cast(byte[])toJSON(commandBlock));
+
+        /* Get the status */
+        JSONValue response;
+
+        byte[] receivedBytes;
+        receiveMessage(connection, receivedBytes);
+        response = parseJSON(cast(string)receivedBytes);
+
+        if(response["status"].integer() == 0)
+        {
+            /* TODO: Good */
+        }
+        else
+        {
+            /* TODO: Throw an exception here */
+        }
+    }
 }
