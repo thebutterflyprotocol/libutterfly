@@ -55,6 +55,56 @@ public final class ButterflyClient
         }
     }
 
+    public void sendMail(JSONValue messageBlock)
+    {
+        /* TODO: Implement me */
+    }
+
+    public string storeMail(string folderPath, JSONValue messageBlock)
+    {
+        string mailID;
+
+
+        /**
+        * Construct the command.
+        */
+        JSONValue commandBlock;
+        commandBlock["command"] = "storeMail";
+        
+        JSONValue requestBlock;
+        requestBlock["folder"] = folderPath;
+        requestBlock["mail"] = messageBlock;
+
+        commandBlock["request"] = requestBlock;
+
+        /* Send the command */
+        sendMessage(connection, cast(byte[])toJSON(commandBlock));
+
+        /* Get the status */
+        JSONValue response;
+
+        byte[] receivedBytes;
+        receiveMessage(connection, receivedBytes);
+        response = parseJSON(cast(string)receivedBytes);
+
+        if(response["status"].integer() == 0)
+        {
+            /* TODO: Good */
+        }
+        else
+        {
+            /* TODO: Throw an exception here */
+        }
+
+
+        return mailID;
+    }
+
+    public JSONValue fetchMail(string folderPath, string mailID)
+    {
+        return JSONValue();
+    }
+
     public void register(string username, string password)
     {
         /**
