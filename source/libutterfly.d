@@ -1,18 +1,41 @@
 module source.libutterfly;
 
 import std.socket;
+import bmessage;
+import std.json;
 
 public final class ButterflyClient
 {
-    this(string besterEndpoint, string[] credentials)
-    {
-        try
-        {
-            //Address  
-        }
-        catch(AddressException e)
-        {
 
-        }
+    /**
+    * Socket connection to the server
+    */
+    private Socket connection;
+
+    this(Address endpoint)
+    {
+        /**
+        * Connect to the remote server
+        */
+        connection = new Socket(AddressFamily.INET, SocketType.STREAM, ProtocolType.TCP);
+        connection.connect(endpoint);
+    }
+
+    public void authenticate(string username, string password)
+    {
+        /**
+        * Construct the command.
+        */
+        JSONValue commandBlock;
+        commandBlock["command"] = "authenticate";
+        
+        JSONValue requestBlock;
+        requestBlock["username"] = username;
+        requestBlock["password"] = password;
+
+        commandBlock["request"] = requestBlock;
+
+        /* Send the command */
+        sendMessage(connection, cast(byte[])toJSON(commandBlock));
     }
 }
