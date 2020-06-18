@@ -37,5 +37,21 @@ public final class ButterflyClient
 
         /* Send the command */
         sendMessage(connection, cast(byte[])toJSON(commandBlock));
+
+        /* Get the status */
+        JSONValue response;
+
+        byte[] receivedBytes;
+        receiveMessage(connection, receivedBytes);
+        response = parseJSON(cast(string)receivedBytes);
+
+        if(response["status"].integer() == 0)
+        {
+            /* TODO: Good */
+        }
+        else
+        {
+            /* TODO: Throw an exception here */
+        }
     }
 }
