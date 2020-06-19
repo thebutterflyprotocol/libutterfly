@@ -88,6 +88,46 @@ public final class ButterflyClient
         }
     }
 
+    public string[] listFolders(string folderPath)
+    {
+        /**
+        * Construct the command.
+        */
+        JSONValue commandBlock;
+        commandBlock["command"] = "listFolder";
+        
+        JSONValue requestBlock;
+        requestBlock["folderName"] = folderPath;
+
+        commandBlock["request"] = requestBlock;
+
+        /* Send the command */
+        sendMessage(connection, cast(byte[])toJSON(commandBlock));
+
+        /* Get the status */
+        JSONValue response;
+
+        byte[] receivedBytes;
+        receiveMessage(connection, receivedBytes);
+        response = parseJSON(cast(string)receivedBytes);
+
+        if(response["status"].integer() == 0)
+        {
+            /* TODO: Good */
+            string[] folderNames;
+            foreach(JSONValue folderName; response["folders"].array())
+            {
+                folderNames ~= folderName.str();
+            }
+            return folderNames;
+        }
+        else
+        {
+            /* TODO: Throw an exception here */
+            return [];
+        }
+    }
+
     public string[] listMail(string folderPath)
     {
         /**
