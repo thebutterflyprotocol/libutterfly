@@ -88,7 +88,7 @@ public final class ButterflyClient
         }
     }
 
-    public string[] listFolders(string folderPath)
+    public string[] listFolder(string folderPath)
     {
         /**
         * Construct the command.
