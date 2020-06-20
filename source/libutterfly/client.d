@@ -280,7 +280,7 @@ public final class ButterflyClient
         * Construct the command.
         */
         JSONValue commandBlock;
-        commandBlock["command"] = "register";
+        commandBlock["command"] = "fetchMail";
         
         JSONValue requestBlock;
         requestBlock["folder"] = folderPath;
