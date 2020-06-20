@@ -1,4 +1,4 @@
-module libutterfly;
+module client;
 
 import std.socket;
 import bmessage;
