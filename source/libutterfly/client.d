@@ -45,7 +45,7 @@ public final class ButterflyClient
         receiveMessage(connection, receivedBytes);
         response = parseJSON(cast(string)receivedBytes);
 
-        if(response["status"].integer() == 0)
+        if(response["status"]["code"].integer() == 0)
         {
             /* TODO: Good */
         }
@@ -78,7 +78,7 @@ public final class ButterflyClient
         receiveMessage(connection, receivedBytes);
         response = parseJSON(cast(string)receivedBytes);
 
-        if(response["status"].integer() == 0)
+        if(response["status"]["code"].integer() == 0)
         {
             /* TODO: Good */
         }
@@ -111,7 +111,7 @@ public final class ButterflyClient
         receiveMessage(connection, receivedBytes);
         response = parseJSON(cast(string)receivedBytes);
 
-        if(response["status"].integer() == 0)
+        if(response["status"]["code"].integer() == 0)
         {
             /* TODO: Good */
             string[] folderNames;
@@ -151,7 +151,7 @@ public final class ButterflyClient
         receiveMessage(connection, receivedBytes);
         response = parseJSON(cast(string)receivedBytes);
 
-        if(response["status"].integer() == 0)
+        if(response["status"]["code"].integer() == 0)
         {
             /* TODO: Good */
         }
@@ -184,7 +184,7 @@ public final class ButterflyClient
         receiveMessage(connection, receivedBytes);
         response = parseJSON(cast(string)receivedBytes);
 
-        if(response["status"].integer() == 0)
+        if(response["status"]["code"].integer() == 0)
         {
             /* TODO: Good */
         }
@@ -217,7 +217,7 @@ public final class ButterflyClient
         receiveMessage(connection, receivedBytes);
         response = parseJSON(cast(string)receivedBytes);
 
-        if(response["status"].integer() == 0)
+        if(response["status"]["code"].integer() == 0)
         {
             /* TODO: Good */
             string[] mailIDs;
@@ -261,7 +261,7 @@ public final class ButterflyClient
         receiveMessage(connection, receivedBytes);
         response = parseJSON(cast(string)receivedBytes);
 
-        if(response["status"].integer() == 0)
+        if(response["status"]["code"].integer() == 0)
         {
             /* TODO: Good */
         }
@@ -303,7 +303,7 @@ public final class ButterflyClient
         receiveMessage(connection, receivedBytes);
         response = parseJSON(cast(string)receivedBytes);
 
-        if(response["status"].integer() == 0)
+        if(response["status"]["code"].integer() == 0)
         {
             /* TODO: Good */
         }
