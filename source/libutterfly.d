@@ -128,6 +128,39 @@ public final class ButterflyClient
         }
     }
 
+    public void deleteFolder(string folderPath)
+    {
+        /**
+        * Construct the command.
+        */
+        JSONValue commandBlock;
+        commandBlock["command"] = "deleteFolder";
+        
+        JSONValue requestBlock;
+        requestBlock["folderName"] = folderPath;
+
+        commandBlock["request"] = requestBlock;
+
+        /* Send the command */
+        sendMessage(connection, cast(byte[])toJSON(commandBlock));
+
+        /* Get the status */
+        JSONValue response;
+
+        byte[] receivedBytes;
+        receiveMessage(connection, receivedBytes);
+        response = parseJSON(cast(string)receivedBytes);
+
+        if(response["status"].integer() == 0)
+        {
+            /* TODO: Good */
+        }
+        else
+        {
+            /* TODO: Throw an exception here */
+        }
+    }
+
     public void createFolder(string folderPath)
     {
         /**
