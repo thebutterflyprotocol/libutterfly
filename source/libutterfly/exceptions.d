@@ -14,12 +14,3 @@ public class ButterflyException : Exception
         this.statusCode = statusCode;
     }
 }
-
-/* TODO: Work in progress */
-public final class MailSendException : ButterflyException
-{
-    this(long statusCode)
-    {
-        super("", statusCode);
-    }
-}

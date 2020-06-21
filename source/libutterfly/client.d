@@ -3,6 +3,7 @@ module libutterfly.client;
 import std.socket;
 import bmessage;
 import std.json;
+import libutterfly.exceptions : ButterflyException;
 
 public final class ButterflyClient
 {
@@ -51,7 +52,8 @@ public final class ButterflyClient
         }
         else
         {
-            /* TODO: Throw an exception here */
+            /* Throw an exception */
+            throw new ButterflyException(response["status"]["message"].str(), response["status"]["code"].integer());
         }
     }
 
@@ -84,7 +86,8 @@ public final class ButterflyClient
         }
         else
         {
-            /* TODO: Throw an exception here */
+            /* Throw an exception */
+            throw new ButterflyException(response["status"]["message"].str(), response["status"]["code"].integer());
         }
     }
 
@@ -123,8 +126,8 @@ public final class ButterflyClient
         }
         else
         {
-            /* TODO: Throw an exception here */
-            return [];
+            /* Throw an exception */
+            throw new ButterflyException(response["status"]["message"].str(), response["status"]["code"].integer());
         }
     }
 
@@ -157,7 +160,8 @@ public final class ButterflyClient
         }
         else
         {
-            /* TODO: Throw an exception here */
+            /* Throw an exception */
+            throw new ButterflyException(response["status"]["message"].str(), response["status"]["code"].integer());
         }
     }
 
@@ -190,7 +194,8 @@ public final class ButterflyClient
         }
         else
         {
-            /* TODO: Throw an exception here */
+            /* Throw an exception */
+            throw new ButterflyException(response["status"]["message"].str(), response["status"]["code"].integer());
         }
     }
 
@@ -229,8 +234,8 @@ public final class ButterflyClient
         }
         else
         {
-            /* TODO: Throw an exception here */
-            return [];
+            /* Throw an exception */
+            throw new ButterflyException(response["status"]["message"].str(), response["status"]["code"].integer());
         }
     }
 
@@ -267,7 +272,8 @@ public final class ButterflyClient
         }
         else
         {
-            /* TODO: Throw an exception here */
+            /* Throw an exception */
+            throw new ButterflyException(response["status"]["message"].str(), response["status"]["code"].integer());
         }
 
 
@@ -305,8 +311,8 @@ public final class ButterflyClient
         }
         else
         {
-            /* TODO: Throw an exception here */
-            return JSONValue();
+            /* Throw an exception */
+            throw new ButterflyException(response["status"]["message"].str(), response["status"]["code"].integer());
         }
     }
 
@@ -340,7 +346,8 @@ public final class ButterflyClient
         }
         else
         {
-            /* TODO: Throw an exception here */
+            /* Throw an exception */
+            throw new ButterflyException(response["status"]["message"].str(), response["status"]["code"].integer());
         }
     }
 }
