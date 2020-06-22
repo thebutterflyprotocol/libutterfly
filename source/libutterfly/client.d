@@ -155,6 +155,13 @@ public final class ButterflyClient
         }
     }
 
+    /**
+    * Deletes an existing folder under the path specified
+    * by `folderPath`.
+    *
+    * Throws a ButterflyException if the folder deletion
+    * fails.
+    */
     public void deleteFolder(string folderPath)
     {
         /**
@@ -189,6 +196,13 @@ public final class ButterflyClient
         }
     }
 
+    /**
+    * Creates a new folder under the path specified
+    * by `folderPath`.
+    *
+    * Throws a ButterflyException if the folder creation
+    * fails.
+    */
     public void createFolder(string folderPath)
     {
         /**
@@ -223,6 +237,12 @@ public final class ButterflyClient
         }
     }
 
+    /**
+    * Returns a string[] of the mail IDs within the
+    * given folder, `folderPath`.
+    *
+    * Throws a ButterflyException if the lookup fails.
+    */
     public string[] listMail(string folderPath)
     {
         /**
