@@ -324,6 +324,14 @@ public final class ButterflyClient
         return mailID;
     }
 
+    /**
+    * Fetches the message block (mail message JSON) of the
+    * mail message specified by `mailID` located in the
+    * folder specified by `folderPath`. Returns it as a
+    * JSONValue.
+    *
+    * Throws a ButterflyException if the mail fetch fails.
+    */
     public JSONValue fetchMail(string folderPath, string mailID)
     {
         /**
@@ -360,6 +368,13 @@ public final class ButterflyClient
         }
     }
 
+    /**
+    * Registers a new account with the given `username`
+    * and `password`.
+    *
+    * Throws a ButterflyException if the account creation
+    * fails.
+    */
     public void register(string username, string password)
     {
         /**
