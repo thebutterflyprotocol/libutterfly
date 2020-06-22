@@ -13,6 +13,11 @@ public final class ButterflyClient
     */
     private Socket connection;
 
+    /**
+    * Creates a new ButterflyClient connected
+    * to the butterfly server specified by the
+    * Address `endpoint`.
+    */
     this(Address endpoint)
     {
         /**
@@ -22,6 +27,13 @@ public final class ButterflyClient
         connection.connect(endpoint);
     }
 
+    /**
+    * Authenticate to the server with the given `username`
+    * and `password`.
+    *
+    * Throws a ButterflyException if the authentication
+    * details are incorrect.
+    */
     public void authenticate(string username, string password)
     {
         /**
@@ -57,6 +69,12 @@ public final class ButterflyClient
         }
     }
 
+    /**
+    * Send the provided JSONValue mail `messageBlock`
+    *
+    * Throws a ButterflyException if the mail sending
+    * fails.
+    */
     public void sendMail(JSONValue messageBlock)
     {
         /**
@@ -91,6 +109,12 @@ public final class ButterflyClient
         }
     }
 
+    /**
+    * Returns a string[] of the folder names in the given
+    * folder, `folderPath`
+    *
+    * Throws a ButterflyException if the lookup fails.
+    */
     public string[] listFolder(string folderPath)
     {
         /**
