@@ -69,6 +69,49 @@ public final class ButterflyClient
         }
     }
 
+
+    public string editMail(string mailPath, JSONValue messageBlock)
+    {
+        string mailID;
+
+
+        /**
+        * Construct the command.
+        */
+        JSONValue commandBlock;
+        commandBlock["command"] = "editMail";
+        
+        JSONValue requestBlock;
+        requestBlock["message"] = mailPath;
+        requestBlock["mail"] = messageBlock;
+
+        commandBlock["request"] = requestBlock;
+
+        /* Send the command */
+        sendMessage(connection, cast(byte[])toJSON(commandBlock));
+
+        /* Get the status */
+        JSONValue response;
+
+        byte[] receivedBytes;
+        receiveMessage(connection, receivedBytes);
+        response = parseJSON(cast(string)receivedBytes);
+
+        if(response["status"]["code"].integer() == 0)
+        {
+            /* TODO: Good */
+        }
+        else
+        {
+            /* Throw an exception */
+            throw new ButterflyException(response["status"]["message"].str(), response["status"]["code"].integer());
+        }
+
+
+        return mailID;
+    }
+
+
     /**
     * Send the provided JSONValue mail `messageBlock`
     *
@@ -313,6 +356,7 @@ public final class ButterflyClient
         if(response["status"]["code"].integer() == 0)
         {
             /* TODO: Good */
+            mailID = response["response"]["mailID"].str();
         }
         else
         {
