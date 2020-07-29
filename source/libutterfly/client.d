@@ -185,7 +185,7 @@ public final class ButterflyClient
         {
             /* TODO: Good */
             string[] folderNames;
-            foreach(JSONValue folderName; response["folders"].array())
+            foreach(JSONValue folderName; response["response"]["folders"].array())
             {
                 folderNames ~= folderName.str();
             }
@@ -313,7 +313,7 @@ public final class ButterflyClient
         {
             /* TODO: Good */
             string[] mailIDs;
-            foreach(JSONValue mailID; response["mailIDs"].array())
+            foreach(JSONValue mailID; response["response"]["mailIDs"].array())
             {
                 mailIDs ~= mailID.str();
             }
